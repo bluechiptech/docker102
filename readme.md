@@ -1,3 +1,2 @@
-# Nodejs web app
-
-Express app with handlebars view engine.
+# Simple nodejs web app
+Test Kubernetes

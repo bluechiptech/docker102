@@ -9,8 +9,8 @@ app.set('view engine', 'handlebars');
 app.use(express.static('static'));
 app.use(morgan('combined'));
 
-var port = process.env.PORT || 8081;
-var message = process.env.MESSAGE || "This is a pod in k8s!";
+var port = process.env.PORT || 8082;
+var message = process.env.MESSAGE || "This is running in a container";
 
 app.get('/', function (req, res) {
     res.render('home', {

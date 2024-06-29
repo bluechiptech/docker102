@@ -1,0 +1,18 @@
+apiVersion: v1
+# Indicates this as a service
+kind: Service
+metadata:
+  name: simplecontainer-service
+spec:
+  selector:
+  # Selector for Pods
+    app: simplecontainer-app
+  ports:
+  # Port Map
+      #The port of this service
+      #Traffic comes in on nodePort, forwards to port on the service which then routes to targetPort on the pod(s).
+    - port: 3000
+      #This is the actual port on which your application is running inside the container.
+      targetPort: 8082
+      protocol: TCP
+  type: LoadBalancer

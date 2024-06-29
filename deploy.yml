@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simplecontainer-deployment
+  labels:
+    app: simplecontainer-app
+spec:
+  #How many copies of each pod do we want?
+  replicas: 2
+  #Which pods are managed by this deployment?
+  selector:
+   #This must match the labels we set on the pod!
+    matchLabels:
+      app: simplecontainer-app
+  template:
+    metadata:
+      labels:
+        app: simplecontainer-app
+    spec:
+      containers:
+        - name: simplecontainer-deployment
+          image: laolu/docker102:june272024v2
+          ports:
+          #conatainerPort is actually optional ,Even without it your Service will know where to direct 
+          #the request based on the info it has declared in its targetPort
+            - containerPort: 8082 
